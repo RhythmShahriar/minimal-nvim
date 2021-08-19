@@ -16,6 +16,12 @@ return require('packer').startup(function()
   use 'kyazdani42/nvim-web-devicons'
   use 'kyazdani42/nvim-tree.lua'
 
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
+
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/nvim-compe'
+
 end)
