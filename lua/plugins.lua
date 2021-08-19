@@ -15,6 +15,7 @@ return require('packer').startup(function()
   -- Explorer For Neovim
   use 'kyazdani42/nvim-web-devicons'
   use 'kyazdani42/nvim-tree.lua'
+  use 'nvim-treesitter/nvim-treesitter'
 
   -- Telescope
   use 'nvim-lua/popup.nvim'
@@ -24,8 +25,9 @@ return require('packer').startup(function()
     'nvim-telescope/telescope-media-files.nvim',
   }
 
-  -- Autocomplete
+  -- LSP
   use 'neovim/nvim-lspconfig'
+  use 'kabouzeid/nvim-lspinstall'
   use 'hrsh7th/nvim-compe'
   use 'hrsh7th/vim-vsnip'
 
@@ -38,6 +40,7 @@ return require('packer').startup(function()
 
   -- Theme
   use 'gruvbox-community/gruvbox'
+  use 'itchyny/lightline.vim'
 
   -- Colorizer
   use 'norcalli/nvim-colorizer.lua'
@@ -50,5 +53,10 @@ return require('packer').startup(function()
   
   -- Easymotion
   use 'airblade/vim-rooter'
+
+  -- Git
+  use 'lewis6991/gitsigns.nvim'
+  use 'tpope/vim-fugitive'
+  use 'tpope/vim-rhubarb'
 
 end)
