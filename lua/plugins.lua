@@ -16,12 +16,39 @@ return require('packer').startup(function()
   use 'kyazdani42/nvim-web-devicons'
   use 'kyazdani42/nvim-tree.lua'
 
+  -- Telescope
+  use 'nvim-lua/popup.nvim'
+  use 'nvim-lua/plenary.nvim'
   use {
     'nvim-telescope/telescope.nvim',
-    requires = { {'nvim-lua/plenary.nvim'} }
+    'nvim-telescope/telescope-media-files.nvim',
   }
 
+  -- Autocomplete
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/nvim-compe'
+  use 'hrsh7th/vim-vsnip'
+
+  -- Intellisense
+  use 'glepnir/lspsaga.nvim'
+  use 'onsails/lspkind-nvim'
+  use 'kosayoda/nvim-lightbulb'
+  use 'mfussenegger/nvim-jdtls'
+  use 'mfussenegger/nvim-dap'
+
+  -- Theme
+  use 'gruvbox-community/gruvbox'
+
+  -- Colorizer
+  use 'norcalli/nvim-colorizer.lua'
+
+  -- Better quickfix
+  use 'kevinhwang91/nvim-bqf'
+
+  -- Text Navigation
+  use 'unblevable/quick-scope'
+  
+  -- Easymotion
+  use 'airblade/vim-rooter'
 
 end)
