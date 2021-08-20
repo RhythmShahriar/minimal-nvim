@@ -43,7 +43,7 @@ vim.api.nvim_exec(
 vim.api.nvim_set_keymap('n', 'Y', 'y$', { noremap = true })
 
 
--- Treesitter configuration
+-- Treesitter configuration 
 -- Parsers must be installed manually via :TSInstall
 require('nvim-treesitter.configs').setup {
   highlight = {
@@ -94,4 +94,47 @@ require('nvim-treesitter.configs').setup {
       },
     },
   },
+}
+
+-- Indent Blankline
+require("indent_blankline").setup {
+    char = "|",
+    buftype_exclude = {"terminal"}
+}
+
+-- Vim match-up
+require'nvim-treesitter.configs'.setup {
+  matchup = {
+    enable = true,              -- mandatory, false will disable the whole extension
+    disable = { "c", "ruby" },  -- optional, list of language that will be disabled
+  },
+}
+
+-- Zen mode
+require("zen-mode").toggle({
+  window = {
+    width = .85 -- width will be 85% of the editor width
+  }
+})
+
+-- Smooth scroll
+require('neoscroll').setup({
+    -- All these keys will be mapped to their corresponding default scrolling animation
+    mappings = {'<C-u>', '<C-d>', '<C-b>', '<C-f>',
+                '<C-y>', '<C-e>', 'zt', 'zz', 'zb'},
+    hide_cursor = true,          -- Hide cursor while scrolling
+    stop_eof = true,             -- Stop at <EOF> when scrolling downwards
+    use_local_scrolloff = false, -- Use the local scope of scrolloff instead of the global scope
+    respect_scrolloff = false,   -- Stop scrolling when the cursor reaches the scrolloff margin of the file
+    cursor_scrolls_alone = true, -- The cursor will keep on scrolling even if the window cannot scroll further
+    easing_function = nil,       -- Default easing function
+    pre_hook = nil,              -- Function to run before the scrolling animation starts
+    post_hook = nil,             -- Function to run after the scrolling animation ends
+})
+
+-- Auto tag
+require'nvim-treesitter.configs'.setup {
+  autotag = {
+    enable = true,
+  }
 }

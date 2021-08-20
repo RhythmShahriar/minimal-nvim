@@ -40,13 +40,26 @@ return require('packer').startup(function()
   use 'gruvbox-community/gruvbox'
   use 'itchyny/lightline.vim'
   use 'norcalli/nvim-colorizer.lua'
+  use 'lukas-reineke/indent-blankline.nvim'
+  use 'andymass/vim-matchup'
+  use 'karb94/neoscroll.nvim'
+  use 'windwp/nvim-ts-autotag'
 
   -- Better quickfix
   use 'kevinhwang91/nvim-bqf'
 
-  -- Text Navigation
+  -- Better text
   use 'unblevable/quick-scope'
-  
+  use {
+   "folke/zen-mode.nvim",
+   config = function()
+    require("zen-mode").setup {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    }
+   end
+  }
   -- Easymotion
   use 'airblade/vim-rooter'
 

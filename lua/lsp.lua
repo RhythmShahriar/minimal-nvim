@@ -1,4 +1,4 @@
--- keymaps
+-- Keymaps
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
@@ -64,7 +64,7 @@ local lua_settings = {
   }
 }
 
--- config that activates keymaps and enables snippet support
+-- Config that activates keymaps and enables snippet support
 local function make_config()
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -76,7 +76,7 @@ local function make_config()
   }
 end
 
--- lsp-install
+-- LSP install
 local function setup_servers()
   require'lspinstall'.setup()
 
