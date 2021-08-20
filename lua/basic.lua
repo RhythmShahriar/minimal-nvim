@@ -37,4 +37,5 @@ vim.o.smartindent = true
 
 -- Colorscheme
 vim.o.background = 'dark'
+vim.o.termguicolors = true
 vim.cmd([[colorscheme gruvbox]])

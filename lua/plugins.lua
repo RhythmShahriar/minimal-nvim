@@ -1,3 +1,4 @@
+-- Setup the Packer
 local execute = vim.api.nvim_command
 local fn = vim.fn
 
@@ -36,30 +37,21 @@ return require('packer').startup(function()
   use 'mfussenegger/nvim-jdtls'
   use 'mfussenegger/nvim-dap'
 
-  -- Theme
+  -- Appearance
   use 'gruvbox-community/gruvbox'
   use 'itchyny/lightline.vim'
   use 'norcalli/nvim-colorizer.lua'
   use 'lukas-reineke/indent-blankline.nvim'
   use 'andymass/vim-matchup'
   use 'karb94/neoscroll.nvim'
+  use 'windwp/nvim-autopairs'
   use 'windwp/nvim-ts-autotag'
+  use 'unblevable/quick-scope'
+  use 'folke/zen-mode.nvim'
 
   -- Better quickfix
   use 'kevinhwang91/nvim-bqf'
 
-  -- Better text
-  use 'unblevable/quick-scope'
-  use {
-   "folke/zen-mode.nvim",
-   config = function()
-    require("zen-mode").setup {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-    }
-   end
-  }
   -- Easymotion
   use 'airblade/vim-rooter'
 
