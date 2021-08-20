@@ -108,17 +108,27 @@ require('nvim-treesitter.configs').setup {
   },
   autotag = {
     enable = true,
-    filetypes = { 'html', 'xml', 'php', 'javascript', 'typescript', 'javascriptreact' }
-  },
-
-  autopairs = {
-    enable = true,
-    enable_check_bracket_line = false
   },
   matchup = {
     enable = true,              -- mandatory, false will disable the whole extension
     disable = { "c", "ruby" },  -- optional, list of language that will be disabled
   },
+}
+
+-- Autopair
+local npairs = require("nvim-autopairs")
+
+npairs.setup({
+    check_ts = true,
+    ts_config = {
+        lua = {'string'},-- it will not add pair on that treesitter node
+        php = {'template_string'},
+        javascript = {'template_string'},
+    }
+})
+
+require('nvim-treesitter.configs').setup {
+    autopairs = {enable = true}
 }
 
 -- Quick scope
@@ -144,4 +154,61 @@ require('neoscroll').setup({
     easing_function = nil,       -- Default easing function
     pre_hook = nil,              -- Function to run before the scrolling animation starts
     post_hook = nil,             -- Function to run after the scrolling animation ends
+})
+
+-- Formatter
+require('formatter').setup({
+  logging = false,
+  filetype = {
+    javascript = {
+        -- prettier
+       function()
+          return {
+            exe = "prettier",
+            args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0), '--single-quote'},
+            stdin = true
+          }
+        end
+    },
+    php = {
+      -- prettier
+      function()
+          return {
+            exe = "prettier",
+            args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0), '--single-quote'},
+            stdin = true
+          }
+        end
+    },
+    markdown = {
+      -- prettier
+      function()
+          return {
+            exe = "prettier",
+            args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0), '--single-quote'},
+            stdin = true
+          }
+        end
+    },
+    json = {
+      -- prettier
+      function()
+          return {
+            exe = "prettier",
+            args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0), '--single-quote'},
+            stdin = true
+          }
+        end
+    },
+    lua = {
+        -- luafmt
+        function()
+          return {
+            exe = "luafmt",
+            args = {"--indent-count", 2, "--stdin"},
+            stdin = true
+          }
+        end
+    },
+  }
 })

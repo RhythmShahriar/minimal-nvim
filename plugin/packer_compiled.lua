@@ -97,10 +97,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/rhythm/.local/share/nvim/site/pack/packer/start/neoscroll.nvim"
   },
-  ["nvim-autopairs"] = {
-    loaded = true,
-    path = "/home/rhythm/.local/share/nvim/site/pack/packer/start/nvim-autopairs"
-  },
   ["nvim-bqf"] = {
     loaded = true,
     path = "/home/rhythm/.local/share/nvim/site/pack/packer/start/nvim-bqf"

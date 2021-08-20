@@ -48,6 +48,7 @@ return require('packer').startup(function()
   use 'windwp/nvim-ts-autotag'
   use 'unblevable/quick-scope'
   use 'folke/zen-mode.nvim'
+  use 'mhartington/formatter.nvim'
 
   -- Better quickfix
   use 'kevinhwang91/nvim-bqf'

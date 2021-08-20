@@ -33,7 +33,7 @@ vim.o.undofile = true
 vim.o.wrap = false
 vim.o.wrapmargin = 8
 vim.o.linebreak = true
-vim.o.smartindent = true
+vim.o.autoindent = true
 
 -- Colorscheme
 vim.o.background = 'dark'
