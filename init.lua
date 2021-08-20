@@ -1,5 +1,17 @@
+-- Plugins
 require('plugins')
+
+-- Keybinds
 require('keymaps')
+
+-- Auto complete
 require('nvim-comp')
-require('settings')
+
+-- Vim basic settings
+require('basic')
+
+-- Custom plugin configs
+require('configs')
+
+-- Language server
 require('lsp')

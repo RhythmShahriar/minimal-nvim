@@ -20,10 +20,8 @@ return require('packer').startup(function()
   -- Telescope
   use 'nvim-lua/popup.nvim'
   use 'nvim-lua/plenary.nvim'
-  use {
-    'nvim-telescope/telescope.nvim',
-    'nvim-telescope/telescope-media-files.nvim',
-  }
+  use 'nvim-telescope/telescope.nvim'
+  use 'nvim-telescope/telescope-media-files.nvim'
 
   -- LSP
   use 'neovim/nvim-lspconfig'
@@ -41,8 +39,6 @@ return require('packer').startup(function()
   -- Theme
   use 'gruvbox-community/gruvbox'
   use 'itchyny/lightline.vim'
-
-  -- Colorizer
   use 'norcalli/nvim-colorizer.lua'
 
   -- Better quickfix
