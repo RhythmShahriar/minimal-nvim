@@ -26,7 +26,7 @@ vim.o.laststatus = 2
 vim.o.clipboard = 'unnamedplus'
 
 -- Undo files
-vim.o.undodir = '~/.vim/undodir'
+vim.o.undodir = './undodir'
 vim.o.undofile = true
 
 -- Text wrapping

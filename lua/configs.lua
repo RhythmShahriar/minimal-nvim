@@ -12,7 +12,12 @@ vim.wo.colorcolumn = "99999"
 
 -- Colorizer
 require 'colorizer'.setup({
+  'html';
   'css';
+  'php';
+  'python';
+  'yaml';
+  'json';
   'javascript';
   html = { mode = 'background' };
 }, { mode = 'foreground' })
