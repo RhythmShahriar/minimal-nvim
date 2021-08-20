@@ -21,10 +21,6 @@ vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { silent = true })
 vim.api.nvim_set_keymap('v', '<', '<gv', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '>', '>gv', { noremap = true, silent = true })
 
-
--- Better format
-
-
 -- Better escape
 vim.api.nvim_set_keymap('i', 'jk', '<ESC>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', 'kj', '<ESC>', { noremap = true, silent = true })
