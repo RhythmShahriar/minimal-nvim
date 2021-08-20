@@ -9,7 +9,7 @@ vim.api.nvim_set_keymap('n', '<Leader>h', ':set hlsearch!<CR>', { noremap = true
 vim.api.nvim_set_keymap('n', '<Leader>f', ':Format<CR>', { noremap = true, silent = true })
 
 -- Explore
-vim.api.nvim_set_keymap('n', '<Leader>e', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader><TAB>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 
 -- Better window movement
 vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', { silent = true })
