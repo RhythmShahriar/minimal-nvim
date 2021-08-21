@@ -39,3 +39,9 @@ vim.api.nvim_set_keymap('n', '<C-p>', [[<cmd>lua require('telescope.builtin').fi
 vim.api.nvim_set_keymap('n', '<leader>fb', [[<cmd>lua require('telescope.builtin').buffers()<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>fh', [[<cmd>lua require('telescope.builtin').help_tags()<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>fg', [[<cmd>lua require('telescope.builtin').live_grep()<CR>]], { noremap = true, silent = true })
+
+-- Lspsaga
+vim.api.nvim_set_keymap('n', 'K',  [[<cmd>lua require('lspsaga.hover').render_hover_doc()<CR>]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'gd',  [[<cmd>lua require'lspsaga.provider'.preview_definition()<CR>]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>t',  [[<cmd>lua require('lspsaga.floaterm').open_float_terminal()<CR>]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap('t', '<Esc><Esc>', [[<C-\><C-n>:lua require('lspsaga.floaterm').close_float_terminal()<CR>]], {  noremap = true, silent = true })

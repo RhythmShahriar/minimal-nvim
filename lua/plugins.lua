@@ -39,14 +39,13 @@ return require('packer').startup(function()
 
   -- Appearance
   use 'gruvbox-community/gruvbox'
-  use 'itchyny/lightline.vim'
+  use 'hoob3rt/lualine.nvim'
   use 'norcalli/nvim-colorizer.lua'
   use 'lukas-reineke/indent-blankline.nvim'
   use 'andymass/vim-matchup'
   use 'karb94/neoscroll.nvim'
   use 'windwp/nvim-autopairs'
   use 'windwp/nvim-ts-autotag'
-  use 'unblevable/quick-scope'
   use 'folke/zen-mode.nvim'
   use 'mhartington/formatter.nvim'
 
@@ -58,7 +57,5 @@ return require('packer').startup(function()
 
   -- Git
   use 'lewis6991/gitsigns.nvim'
-  use 'tpope/vim-fugitive'
-  use 'tpope/vim-rhubarb'
 
 end)

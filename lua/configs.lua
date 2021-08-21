@@ -7,7 +7,6 @@ vim.g.indent_blankline_show_first_indent_level = true
 vim.g.indent_blankline_use_treesitter = true
 vim.g.indent_blankline_show_current_context = true
 vim.g.indent_blankline_show_trailing_blankline_indent = false
--- ref https://github.com/lukas-reineke/indent-blankline.nvim/issues/59
 vim.wo.colorcolumn = "99999"
 
 -- Colorizer
@@ -144,9 +143,6 @@ require('nvim-treesitter.configs').setup {
     autopairs = {enable = true}
 }
 
--- Quick scope
-vim.cmd [[ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T'] ]]
-
 -- Zen mode
 require("zen-mode").toggle({
   window = {
@@ -225,3 +221,16 @@ require('formatter').setup({
     },
   }
 })
+
+-- lightbulb
+vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
+require'nvim-lightbulb'.get_status_text()
+
+-- lualine
+require'lualine'.setup{
+  options = {theme = 'gruvbox'}
+}
+
+-- lspsaga
+local saga = require 'lspsaga'
+saga.init_lsp_saga()
