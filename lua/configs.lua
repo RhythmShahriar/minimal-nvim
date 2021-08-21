@@ -43,7 +43,15 @@ require('telescope').setup {
       },
     },
   },
+  extensions = {
+    media_files = {
+      -- filetypes whitelist
+      filetypes = {"png", "jpg", "mp4", "pdf"},
+      find_cmd = "rg" -- find command (defaults to `fd`)
+    }
+  },
 }
+
 
 -- Highlight on yank
 vim.api.nvim_exec(
