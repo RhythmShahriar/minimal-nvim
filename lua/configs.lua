@@ -234,3 +234,7 @@ require'lualine'.setup{
 -- lspsaga
 local saga = require 'lspsaga'
 saga.init_lsp_saga()
+
+-- nvim tree
+vim.g.nvim_tree_ignore = { '.git', 'node_modules', '.cache' }
+vim.g.nvim_tree_width = 30
