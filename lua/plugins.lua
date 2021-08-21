@@ -38,7 +38,7 @@ return require('packer').startup(function()
   use 'mfussenegger/nvim-dap'
 
   -- Appearance
-  use 'gruvbox-community/gruvbox'
+  use {"ellisonleao/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
   use 'hoob3rt/lualine.nvim'
   use 'norcalli/nvim-colorizer.lua'
   use 'lukas-reineke/indent-blankline.nvim'
