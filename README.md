@@ -6,8 +6,9 @@ Minimal nVIM (neovim) — configured in `Lua` (works on Linux and should work on
 
 ##### Run the script with **sudo** 
 ```
-sudo wget -O - https://raw.githubusercontent.com/RhythmShahriar/nvim-conf/minimal-nvim-setup/setup.sh | bash
+sudo wget -O - https://raw.githubusercontent.com/RhythmShahriar/minimal-nvim/setup/install.sh | bash
 ```
+or check [setup branch](https://github.com/RhythmShahriar/minimal-nvim/tree/setup)
 
 This script will perform the following executions
 - Remove old vim/nvim from your machine
