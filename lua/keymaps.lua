@@ -45,3 +45,11 @@ vim.api.nvim_set_keymap('n', 'K',  [[<cmd>lua require('lspsaga.hover').render_ho
 vim.api.nvim_set_keymap('n', 'gd',  [[<cmd>lua require'lspsaga.provider'.preview_definition()<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>t',  [[<cmd>lua require('lspsaga.floaterm').open_float_terminal()<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('t', '<Esc><Esc>', [[<C-\><C-n>:lua require('lspsaga.floaterm').close_float_terminal()<CR>]], {  noremap = true, silent = true })
+
+-- Auto compe
+vim.api.nvim_set_keymap('i', '<C-space>', 'compe#complete()', { expr = true })
+vim.api.nvim_set_keymap('i', '<CR>', 'compe#confirm("<cr>")', { expr = true })
+vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
