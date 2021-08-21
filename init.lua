@@ -1,11 +1,19 @@
--- Plugins
+---------------------------
+--      Plugins
+---------------------------
 require('plugins')
 
--- Vim basic settings
+---------------------------
+--  Vim basic settings
+---------------------------
 require('basic')
 
+---------------------------
 -- Custom plugin configs
+---------------------------
 require('configs')
 
--- Keybinds
+---------------------------
+--      Keybinds
+---------------------------
 require('keymaps')

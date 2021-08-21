@@ -33,7 +33,6 @@ return require('packer').startup(function()
   -- Intellisense
   use 'glepnir/lspsaga.nvim'
   use 'onsails/lspkind-nvim'
-  use 'kosayoda/nvim-lightbulb'
   use 'mfussenegger/nvim-jdtls'
   use 'mfussenegger/nvim-dap'
 
