@@ -1,14 +1,14 @@
 -- Plugins
 require('plugins')
 
+-- Vim basic settings
+require('basic')
+
 -- Keybinds
 require('keymaps')
 
 -- Auto complete
 require('nvim-comp')
-
--- Vim basic settings
-require('basic')
 
 -- Custom plugin configs
 require('configs')
