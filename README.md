@@ -1,6 +1,6 @@
 # Minimal nVIM
 
-Minimal nVIM (neovim) — written in `Lua` (works on Linux and should work on Windows/macOS but yet to test).
+Minimal nVIM (neovim) — configured in `Lua` (works on Linux and should work on Windows/macOS but yet to test).
 
 ## Install Instructions
 
