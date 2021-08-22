@@ -1,117 +1,146 @@
--- language server
+-- language server protocol
+local nvim_lsp = require "lspconfig"
+local configs = require "lspconfig/configs"
+local util = require "lspconfig/util"
+
 local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
-  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-  -- Mappings.
-  local opts = { noremap=true, silent=true }
-  buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-  buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-  buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-  buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-  buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-  buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-  buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-  buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-
-  -- Set some keybinds conditional on server capabilities
-  if client.resolved_capabilities.document_formatting then
-    buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-  elseif client.resolved_capabilities.document_range_formatting then
-    buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
-  end
-
-  -- Set autocommands conditional on server_capabilities
-  if client.resolved_capabilities.document_highlight then
-    vim.api.nvim_exec([[
-    augroup lsp_document_highlight
-    autocmd! * <buffer>
-    autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-    autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-    augroup END
-    ]], false)
-  end
+  -- lspsaga
+  require("lspsaga").init_lsp_saga()
 end
 
--- Configure lua language server for neovim development
-local lua_settings = {
-  Lua = {
-    runtime = {
-      -- LuaJIT in the case of Neovim
-      version = 'LuaJIT',
-      path = vim.split(package.path, ';'),
-    },
-    diagnostics = {
-      -- Get the language server to recognize the `vim` global
-      globals = {'vim'},
-    },
-    workspace = {
-      -- Make the server aware of Neovim runtime files
-      library = {
-        [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-        [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
-      },
-    },
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+  properties = {
+    "documentation",
+    "detail",
+    "additionalTextEdits"
   }
 }
 
--- Config that activates keymaps and enables snippet support
-local function make_config()
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities.textDocument.completion.completionItem.snippetSupport = true
-  return {
-    -- enable snippet support
+-- intelephense
+nvim_lsp.intelephense.setup(
+  {
+    settings = {
+      intelephense = {
+        stubs = {
+          "bcmath",
+          "bz2",
+          "calendar",
+          "Core",
+          "curl",
+          "date",
+          "dba",
+          "dom",
+          "enchant",
+          "fileinfo",
+          "filter",
+          "ftp",
+          "gd",
+          "gettext",
+          "hash",
+          "iconv",
+          "imap",
+          "intl",
+          "json",
+          "ldap",
+          "libxml",
+          "mbstring",
+          "mcrypt",
+          "mysql",
+          "mysqli",
+          "password",
+          "pcntl",
+          "pcre",
+          "Phar",
+          "readline",
+          "recode",
+          "Reflection",
+          "regex",
+          "session",
+          "SimpleXML",
+          "soap",
+          "sockets",
+          "sodium",
+          "SPL",
+          "standard",
+          "superglobals",
+          "sysvsem",
+          "sysvshm",
+          "tokenizer",
+          "xml",
+          "xdebug",
+          "xmlreader",
+          "xmlwriter",
+          "yaml",
+          "zip",
+          "zlib",
+          "wordpress",
+          "woocommerce",
+          "acf-pro",
+          "wordpress-globals",
+          "wp-cli"
+        },
+        files = {
+          maxSize = 5000000
+        }
+      }
+    },
     capabilities = capabilities,
-    -- map buffer local keybindings when the language server attaches
-    on_attach = on_attach,
+    on_attach = on_attach
   }
-end
+)
 
--- LSP install
 local function setup_servers()
-  require'lspinstall'.setup()
+  require "lspinstall".setup()
 
   -- get all installed servers
-  local servers = require'lspinstall'.installed_servers()
-  -- ... and add manually installed servers
-  table.insert(servers, "clangd")
-  table.insert(servers, "sourcekit")
+  local servers = require "lspinstall".installed_servers()
 
   for _, server in pairs(servers) do
-    local config = make_config()
+    local config = {
+      -- enable snippet support
+      capabilities = capabilities,
+      -- map buffer local keybindings when the language server attaches
+      on_attach = on_attach
+    }
 
     -- language specific config
-    if server == "lua" then
-      config.settings = lua_settings
-    end
-    if server == "sourcekit" then
-      config.filetypes = {"swift", "objective-c", "objective-cpp"}; -- we don't want c and cpp!
-    end
-    if server == "clangd" then
-      config.filetypes = {"c", "cpp"}; -- we don't want objective-c and objective-cpp!
-    end
+    config.settings = lua_settings
 
-    require'lspconfig'[server].setup(config)
+    require "lspconfig"[server].setup(config)
   end
 end
 
 setup_servers()
 
--- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
-require'lspinstall'.post_install_hook = function ()
+-- define global function
+_G.lsp_import_on_completion = function()
+  local completed_item = vim.v.completed_item
+  if not (completed_item and completed_item.user_data and
+      completed_item.user_data.nvim and completed_item.user_data.nvim.lsp and
+      completed_item.user_data.nvim.lsp.completion_item) then return end
+
+  local item = completed_item.user_data.nvim.lsp.completion_item
+  local bufnr = vim.api.nvim_get_current_buf()
+  vim.lsp.buf_request(bufnr, "completionItem/resolve", item,
+                  function(_, _, result)
+      if result and result.additionalTextEdits then
+          vim.lsp.util.apply_text_edits(result.additionalTextEdits, bufnr)
+      end
+  end)
+end
+
+-- define autocmd to listen for CompleteDone
+vim.api.nvim_exec([[
+augroup LSPImportOnCompletion
+  autocmd!
+  autocmd CompleteDone * lua lsp_import_on_completion()
+augroup END
+]], false)
+
+-- Automatically reload after `:LspInstall <server>`
+require "lspinstall".post_install_hook = function()
   setup_servers() -- reload installed servers
   vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
 end
-
--- lspsaga
-local saga = require 'lspsaga'
-saga.init_lsp_saga()

@@ -1,4 +1,5 @@
 # Minimal nVIM
+`version: 0.0.1-beta`
 
 Minimal nVIM (neovim) — configured in `Lua` (works on Linux `20.04` and should work on Windows/macOS but yet to test).
 
@@ -31,7 +32,6 @@ or check [setup process](https://gist.github.com/RhythmShahriar/87b3881604456d11
 | [lspsaga.nvim](https://github.com/glepnir/lspsaga.nvim)                                    | A light-weight lsp plugin based on neovim built-in lsp with highly a performant UI.                                                                             |
 | [lspkind-nvim](https://github.com/onsails/lspkind-nvim)                                    | This tiny plugin adds vscode-like pictograms to neovim built-in lsp.                                                                                            |
 | [nvim-lightbulb](https://github.com/kosayoda/nvim-lightbulb)                               | VSCode bulb for neovim's built-in LSP.                                                                                                                          |
-| [nvim-dap](https://github.com/mfussenegger/nvim-dap)                                       | A Debug Adapter Protocol client implementation for `Neovim (>= 0.5)`                                                                                            |
 | [gruvbox](https://github.com/gruvbox-community/gruvbox)                                    | gruvbox is heavily inspired by badwolf, jellybeans and solarized.                                                                                               |
 | [lualine.nvim](https://github.com/hoob3rt/lualine.nvim)                                    | A blazing fast and easy to configure neovim statusline written in pure lua.                                                                                     |
 | [colorizer.lua](https://github.com/norcalli/nvim-colorizer.lua)                            | A high-performance color highlighter for Neovim which has no external dependencies! Written in performant Luajit.                                               |
@@ -77,7 +77,7 @@ or check [setup process](https://gist.github.com/RhythmShahriar/87b3881604456d11
 
 After setup if you are facing any issues try to following steps
 
-1. Open nvim .
+1. Open `nvim ~/.config/nvim/init.lua`
 2. `ctrl` + `:` and type `PackerSync` then hit enter
 3. Close the setup once done `q`
 4. Source nvim `ctrl`+`:` and type `so` then hit enter.
