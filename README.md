@@ -7,10 +7,10 @@ Minimal nVIM (neovim) — configured in `Lua` (works on Linux and should work on
 ##### Run the script with **sudo**
 
 ```
-sudo wget -O - https://raw.githubusercontent.com/RhythmShahriar/minimal-nvim/setup/install.sh | bash
+sudo wget -O - https://gist.githubusercontent.com/RhythmShahriar/87b3881604456d11d9ee5447c627e17f/raw/40745ae745e9e12e93901583ba1ea37c6ecba0f8/install.sh | bash
 ```
 
-or check [setup branch](https://github.com/RhythmShahriar/minimal-nvim/tree/setup)
+or check [setup process](https://gist.github.com/RhythmShahriar/87b3881604456d11d9ee5447c627e17f)
 
 This script will perform the following executions
 
