@@ -1,6 +1,6 @@
 # Minimal nVIM
 
-Minimal nVIM (neovim) — configured in `Lua` (works on Linux and should work on Windows/macOS but yet to test).
+Minimal nVIM (neovim) — configured in `Lua` (works on Linux `20.04` and should work on Windows/macOS but yet to test).
 
 ## Install Instructions
 
@@ -11,16 +11,6 @@ sudo wget -O - https://gist.githubusercontent.com/RhythmShahriar/87b3881604456d1
 ```
 
 or check [setup process](https://gist.github.com/RhythmShahriar/87b3881604456d11d9ee5447c627e17f)
-
-This script will perform the following executions
-
-- Remove old vim/nvim from your machine
-- Install **nvim** version `0.5`
-- Clone the nvim-conf folder as `~/.config/nvim`
-- Install Node.JS version `14.*` with `npm` _(required for prettier)_
-- Install prettier globally
-- Install all the vim **plugins**
-- Source the configrations
 
 ## Installed Plugins
 
