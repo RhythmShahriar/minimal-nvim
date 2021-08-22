@@ -13,10 +13,9 @@ return require('packer').startup(function()
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
-  -- Explorer For Neovim
+  -- Explorer
   use 'kyazdani42/nvim-web-devicons'
   use 'kyazdani42/nvim-tree.lua'
-  use 'nvim-treesitter/nvim-treesitter'
 
   -- Telescope
   use 'nvim-lua/popup.nvim'
@@ -27,14 +26,14 @@ return require('packer').startup(function()
   -- LSP
   use 'neovim/nvim-lspconfig'
   use 'kabouzeid/nvim-lspinstall'
-  use 'hrsh7th/nvim-compe'
-  use 'hrsh7th/vim-vsnip'
+  use 'glepnir/lspsaga.nvim'
 
   -- Intellisense
-  use 'glepnir/lspsaga.nvim'
+  use 'nvim-treesitter/nvim-treesitter'
+  use 'hrsh7th/nvim-compe'
   use 'onsails/lspkind-nvim'
   use 'mfussenegger/nvim-jdtls'
-  use 'mfussenegger/nvim-dap'
+  use 'hrsh7th/vim-vsnip'
 
   -- Appearance
   use 'rktjmp/lush.nvim'
