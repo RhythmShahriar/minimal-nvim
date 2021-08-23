@@ -3,11 +3,6 @@ local nvim_lsp = require "lspconfig"
 local configs = require "lspconfig/configs"
 local util = require "lspconfig/util"
 
-local on_attach = function(client, bufnr)
-  -- lspsaga
-  require("lspsaga").init_lsp_saga()
-end
-
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities.textDocument.completion.completionItem.resolveSupport = {
@@ -86,8 +81,7 @@ nvim_lsp.intelephense.setup(
         }
       }
     },
-    capabilities = capabilities,
-    on_attach = on_attach
+    capabilities = capabilities
   }
 )
 
@@ -101,13 +95,10 @@ local function setup_servers()
     local config = {
       -- enable snippet support
       capabilities = capabilities,
-      -- map buffer local keybindings when the language server attaches
-      on_attach = on_attach
     }
 
     -- language specific config
     config.settings = lua_settings
-
     require "lspconfig"[server].setup(config)
   end
 end
@@ -144,3 +135,7 @@ require "lspinstall".post_install_hook = function()
   setup_servers() -- reload installed servers
   vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
 end
+
+-- lspsaga
+local saga = require 'lspsaga'
+saga.init_lsp_saga()

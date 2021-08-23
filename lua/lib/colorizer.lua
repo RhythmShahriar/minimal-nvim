@@ -7,5 +7,6 @@ require 'colorizer'.setup({
   'yaml';
   'json';
   'javascript';
+  'bash';
   html = { mode = 'background' };
 }, { mode = 'foreground' })
