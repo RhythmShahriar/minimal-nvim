@@ -33,6 +33,12 @@ npairs.setup({
     ts_config = {
         lua = {'string'},-- it will not add pair on that treesitter node
         php = {'template_string'},
+        python = {'template_string'},
         javascript = {'template_string'},
+        json = {'template_string'},
+        yaml = {'template_string'},
+        html = {'template_string'},
+        css = {'template_string'},
+        bash = {'template_string'},
     }
 })
